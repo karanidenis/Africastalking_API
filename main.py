@@ -1,12 +1,15 @@
 from flask import Flask, request
 import africastalking
 from texts import sending
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+load_dotenv()
 # Set your Africa's Talking API credentials
-africastalking_username = "sandbox"
-africastalking_api_key = "35095b41ed745d38d682e004e6a78f6d4642c3320d792c30e763b22609c2a229"
+africastalking_username = os.getenv("africastalking_username")
+africastalking_api_key = os.getenv("africastalking_api_key")
 
 # Initialize the Africa's Talking SDK
 africastalking.initialize(africastalking_username, africastalking_api_key)

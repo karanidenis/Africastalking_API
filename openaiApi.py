@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 import openai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Set up your OpenAI API credentials
-openai.api_key = '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'
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def get_chatbot_response(prompt):
     # Generate a chatbot response using OpenAI API

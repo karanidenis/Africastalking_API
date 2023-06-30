@@ -1,11 +1,13 @@
 import africastalking
+import os
+from dotenv import load_dotenv
 
 # TODO: Initialize Africa's Talking
 
-# username="karanidenis"
-# api_key="35095b41ed745d38d682e004e6a78f6d4642c3320d792c30e763b22609c2a229"
-username = "karanidenis"
-api_key = "47585c2a5bd1955a7f43fb5871b90e78df8fb942f58c22d0ddcd67732c896f63"
+load_dotenv() 
+username = os.getenv("sms_username")
+
+api_key = os.getenv("africastalking_api_key")
 africastalking.initialize(username, api_key)
 sms = africastalking.SMS
 
